@@ -11,17 +11,17 @@ Discovery is a two step process.
 
 You need the location (latitude, longitude) and optional the osmType (point, way, relation) and osmId (positive integer).
 
-Example (*Remark*: API not yet hosted online):
+Example:
 
-`GET https://discover.openplaceguide.org/v1/discover?lat=12.78&lng=36.92&osmType=point&osmId=123456`
+`GET https://discover.openplaceguide.org/v1/discover?lat=12.78&lng=36.92`
 
 returns:
 
 ```json
 {
-    "url": "https:\/\/opg.addismap.com\/p123456",
-    "dataUrl": "https:\/\/opg.addismap.com\/json\/p123456",
-    "area": "ethiopia"
+   "area": "ethiopia",
+   "url": "https://opg.addismap.com/",
+   "dataUrl": "https://opg.addismap.com/api/v1/place/"
 }
 ```
 
