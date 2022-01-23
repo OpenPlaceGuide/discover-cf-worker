@@ -588,6 +588,14 @@
     ]
   },
   "properties": {
-    "name": "ethiopia"
+    "name": "ethiopia",
+    "url": "https://opg.addismap.com/",
+    "manager": [
+      "https://www.openstreetmap.org/user/self",
+      "https://www.openstreetmap.org/user/AddisMap%20Alazar"
+    ],
+    "git": [
+      "https://github.com/addismap/addismap-data.git"
+    ]
   }
 }
