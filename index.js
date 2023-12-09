@@ -68,7 +68,8 @@ router.get("/v1/discover?", (req) => {
     // Return the HTML with the string to the client
     return new Response(JSON.stringify(response), {
         headers: {
-            "Content-Type": "text/json"
+            "Content-Type": "text/json",
+            "Access-Control-Allow-Origin": "*"
         }
     })
 })
