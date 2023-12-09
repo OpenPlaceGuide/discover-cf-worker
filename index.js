@@ -19,6 +19,7 @@ router.get("/", () => {
         {
             headers: {
                 "Content-Type": "text/html"
+                "Access-Control-Allow-Origin": "*"                
             }
         }
     )
@@ -54,7 +55,8 @@ router.get("/v1/discover?", (req) => {
     if (typeof poly === 'undefined') {
         return new Response(JSON.stringify({'notice': 'not in any known area of OpenPlaceGuide'}), {
             headers: {
-                "Content-Type": "text/json"
+                "Content-Type": "text/json",
+                "Access-Control-Allow-Origin": "*"
             }
         });
     }
