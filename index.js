@@ -18,7 +18,7 @@ router.get("/", () => {
         '<p><a href="https://github.com/openplaceguide/discover-cf-worker">GitHub</a></p>',
         {
             headers: {
-                "Content-Type": "text/html"
+                "Content-Type": "text/html",
                 "Access-Control-Allow-Origin": "*"                
             }
         }
