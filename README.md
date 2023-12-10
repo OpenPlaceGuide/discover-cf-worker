@@ -13,26 +13,17 @@ You need the location (latitude, longitude) and optional the osmType (point, way
 
 Example:
 
-`GET https://discover.openplaceguide.org/v1/discover?lat=12.78&lng=36.92`
+`GET https://discover.openplaceguide.org/v2/discover?lat=8.9776209&38&lon=38.7617240&osmId=way/162817836`
 
 returns:
 
 ```json
-{
-   "area": "ethiopia",
-   "url": "https://opg.addismap.com/",
-   "dataUrl": "https://opg.addismap.com/api/v1/place/"
-}
+[{"url":"https://opg.addismap.com/way/162817836","name":"AddisMap"}]
 ```
 
 The returned url will redirect to the micro page for the OSM object.
 
-The returned data URL can be fetched to obtain basic information, such as the logo image and a media gallery (if present).
-
-The parmeters `osmType`  and `osmId` are optional, if omitted, only the base URL to the federated OpenPlaceGuide instance 
-for the area fill be reported.
-
-## Add your country
+## Add your country / thematic website
 
 Active contributors / teams of the OpenStreetMap are invited to set up a data repository for their country and register
 the country in here.
@@ -51,5 +42,6 @@ the country in here.
 
 4. Add the end of the file, add additional properties
 
+## Development
 
-
+`npm run dev`

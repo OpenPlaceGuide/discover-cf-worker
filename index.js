@@ -13,13 +13,13 @@ const router = Router()
 Our index route, a simple hello world.
 */
 router.get("/", () => {
-    return new Response('<h1>Welcome to the OpenPlaceGuide Discover API Service</h1>' +
-        '<p>Sample request: <a href="/v1/discover?lat=12.78&lng=36.92">/v1/discover?lat=12.78&lng=36.92</a></p>' +
+    return new Response('<h1>Welcome to the OpenPlaceGuide Discover V2 API Service</h1>' +
+        '<p>Sample request: <a href="/v2/discover?lat=8.9776209&38&lon=38.7617240&osmId=way/162817836">/v2/discover?lat=8.9776209&38&lon=38.7617240&osmId=way/162817836</a></p>' +
         '<p><a href="https://github.com/openplaceguide/discover-cf-worker">GitHub</a></p>',
         {
             headers: {
                 "Content-Type": "text/html",
-                "Access-Control-Allow-Origin": "*"                
+                "Access-Control-Allow-Origin": "*"
             }
         }
     )
@@ -31,18 +31,19 @@ URL.
 
 Try visit /example/hello and see the response.
 */
-router.get("/v1/discover?", (req) => {
+router.get("/v2/discover?", (req) => {
     const {params, query} = req
 
-    const lng = query.lng;
+    const lon = query.lon ?? query.lng;
     const lat = query.lat;
+    const osmId = query.osmId ?? '${type}/${id}';
 
     let areas = [];
 
     // Add new Areas / Countries here
-    areas.push(Eritrea);
+    // areas.push(Eritrea);
     areas.push(Ethiopia);
-    areas.push(SouthSudan);
+    // areas.push(SouthSudan);
 
     var featureCollection = {
         type: 'FeatureCollection',
@@ -50,7 +51,7 @@ router.get("/v1/discover?", (req) => {
     };
 
     var lookup = new PolygonLookup(featureCollection);
-    var poly = lookup.search(lng, lat);
+    var poly = lookup.search(lon, lat);
 
     if (typeof poly === 'undefined') {
         return new Response(JSON.stringify({'notice': 'not in any known area of OpenPlaceGuide'}), {
@@ -61,11 +62,10 @@ router.get("/v1/discover?", (req) => {
         });
     }
 
-    const response = {
-        "url": poly.properties.url,
-        "dataUrl": poly.properties.url + "api/v1/place/",
-        "area": poly.properties.name
-    }
+    const response = [{
+        "url": poly.properties.url + osmId,
+        "name": poly.properties.name
+    }]
 
     // Return the HTML with the string to the client
     return new Response(JSON.stringify(response), {

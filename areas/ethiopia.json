@@ -588,7 +588,7 @@
     ]
   },
   "properties": {
-    "name": "ethiopia",
+    "name": "AddisMap",
     "url": "https://opg.addismap.com/",
     "manager": [
       "https://www.openstreetmap.org/user/self",
