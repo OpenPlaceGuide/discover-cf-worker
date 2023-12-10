@@ -54,7 +54,7 @@ router.get("/v2/discover?", (req) => {
     var poly = lookup.search(lon, lat);
 
     if (typeof poly === 'undefined') {
-        return new Response(JSON.stringify({'notice': 'not in any known area of OpenPlaceGuide'}), {
+        return new Response(JSON.stringify([]), {
             headers: {
                 "Content-Type": "text/json",
                 "Access-Control-Allow-Origin": "*"
