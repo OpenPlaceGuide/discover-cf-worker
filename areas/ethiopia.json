@@ -589,7 +589,7 @@
   },
   "properties": {
     "name": "map.et (beta)",
-    "url": "https://map.et/",
+    "url": "https://map.et/detail/",
     "manager": [
       "https://www.openstreetmap.org/user/self",
       "https://www.openstreetmap.org/user/AddisMap%20Alazar"
